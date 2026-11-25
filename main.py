@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Worst Fix Ever: Funniest Commit Message - make.fun bounty entry.
 
-Writes one commit message for a bug fix that made everything worse to
-entry.txt in the output directory (the file the make.fun harness
-grades).
+One commit message for a fix that made everything worse: the crash
+is gone because the feature, the tests, and everyone who noticed are
+gone too. The script writes that single line to entry.txt in the
+output directory, which is the file the make.fun harness grades.
 
-The commit message lives in ENTRY below and is returned unchanged by
-get_entry(). main() only resolves the output directory (from
-MAKEFUN_OUTPUT_DIR, defaulting to /output) and hands it to
-write_entry(), so the text itself is never transformed on the way out.
+The message itself lives in the ENTRY constant below, and get_entry()
+returns it word for word; main() only decides where the line goes:
+it reads the MAKEFUN_OUTPUT_DIR environment variable, falling back to
+/output, then passes that directory to write_entry().
 """
 
 import os
